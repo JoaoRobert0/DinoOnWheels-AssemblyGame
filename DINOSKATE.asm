@@ -1011,6 +1011,16 @@ dino1.4:
 	#Column4
 	sw $t3, 29708($t9)
 	sw $t3, 30220($t9)
+
+	#Column3
+	sw $t2, 31240($t9)
+
+	#Column2	
+	sw $t2, 30724($t9)
+
+	#Column1
+	sw $t2, 30028($t9)
+	sw $t2, 31744($t9)
 	
 	addi $t0, $zero, 0
 	
