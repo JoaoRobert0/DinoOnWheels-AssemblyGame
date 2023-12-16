@@ -102,7 +102,7 @@ start:
 	jal check4
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
-	beq $t0, 0X00FF00Db, gameOver
+	beq $t0, 0X00FF00DA, gameOver
 	j sce13
 		dino2Sce12:
 		jal dino2
@@ -111,6 +111,9 @@ start:
 	.include "scenario13.asm"
 	bne $s0, 0, dino2Sce13
 	jal check1
+	lui $t9, 0x1001
+	lw $t0, 29756($t9)
+	beq $t0, 0X00FF00DA, gameOver
 	j sce14
 		dino2Sce13:
 		jal dino2
@@ -119,6 +122,9 @@ start:
 	.include "scenario14.asm"
 	bne $s0, 0, dino2Sce14
 	jal check2
+	lui $t9, 0x1001
+	lw $t0, 29756($t9)
+	beq $t0, 0X00FF00DA, gameOver
 	j sce15
 		dino2Sce14:
 		jal dino2
@@ -127,6 +133,9 @@ start:
 	.include "scenario15.asm"
 	bne $s0, 0, dino2Sce15
 	jal check3
+	lui $t9, 0x1001
+	lw $t0, 29756($t9)
+	beq $t0, 0X00FF00DA, gameOver
 	j sce16
 		dino2Sce15:
 		jal dino2
@@ -234,7 +243,7 @@ dino1.1:
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
-   	addi $t1, $zero, 0X00000000 #Black
+   	addi $t1, $zero, 0X00535454 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
 	addi $t4, $zero, 0X00B00598 #Dark Pink
@@ -429,7 +438,7 @@ dino1.1:
 	addi $t0, $zero, 0
 	
 	delayDino1.1:
-	beq $t0, 15000, exitDino1.1
+	beq $t0, 20000, exitDino1.1
 	addi $t0, $t0, 1
 	j delayDino1.1
 	
@@ -440,7 +449,7 @@ dino1.2:
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
-   	addi $t1, $zero, 0X00000000 #Black
+   	addi $t1, $zero, 0X00535454 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
 	addi $t4, $zero, 0X00B00598 #Dark Pink
@@ -623,7 +632,7 @@ dino1.2:
 	addi $t0, $zero, 0
 	
 	delayDino1.2:
-	beq $t0, 15000, exitDino1.2
+	beq $t0, 20000, exitDino1.2
 	addi $t0, $t0, 1
 	j delayDino1.2
 	
@@ -634,7 +643,7 @@ dino1.3:
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
-   	addi $t1, $zero, 0X00000000 #Black
+   	addi $t1, $zero, 0X00535454 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
 	addi $t4, $zero, 0X00B00598 #Dark Pink
@@ -812,7 +821,7 @@ dino1.3:
 	addi $t0, $zero, 0
 	
 	delayDino1.3:
-	beq $t0, 15000, exitDino1.3
+	beq $t0, 20000, exitDino1.3
 	addi $t0, $t0, 1
 	j delayDino1.3
 	
@@ -823,7 +832,7 @@ dino1.4:
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
-   	addi $t1, $zero, 0X00000000 #Black
+   	addi $t1, $zero, 0X00535454 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
 	addi $t4, $zero, 0X00B00598 #Dark Pink
@@ -1006,7 +1015,7 @@ dino1.4:
 	addi $t0, $zero, 0
 	
 	delayDino1.4:
-	beq $t0, 15000, exitDino1.4
+	beq $t0, 20000, exitDino1.4
 	addi $t0, $t0, 1
 	j delayDino1.4
 	
@@ -1017,7 +1026,7 @@ dino2W:
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
-   	addi $t1, $zero, 0X00000000 #Black
+   	addi $t1, $zero, 0X00535454 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
 	addi $t4, $zero, 0X00B00598 #Dark Pink
@@ -1211,7 +1220,7 @@ dino2W:
 	addi $t0, $zero, 0
 	
 	delayDino2W:
-	beq $t0, 15000, exitDino2W
+	beq $t0, 20000, exitDino2W
 	addi $t0, $t0, 1
 	j delayDino2W
 	
@@ -1223,7 +1232,7 @@ dino2:
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
-   	addi $t1, $zero, 0X00000000 #Black
+   	addi $t1, $zero, 0X00535454 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
 	addi $t4, $zero, 0X00B00598 #Dark Pink
@@ -1417,7 +1426,7 @@ dino2:
 	addi $t0, $zero, 0
 	
 	delayDino2:
-	beq $t0, 15000, exitDino2
+	beq $t0, 20000, exitDino2
 	addi $t0, $t0, 1
 	j delayDino2
 	
