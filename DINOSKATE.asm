@@ -6,7 +6,7 @@ main:
 	
 	addi $v0, $0, 10 #Encerrar Programa
 	syscall
-	
+
 start:	
 	sce1:
 	.include "scenario1.asm"
@@ -102,7 +102,7 @@ start:
 	jal check4
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
-	beq $t0, 0X00FF00DA, gameOver
+	beq $t0, 0X00FF00Db, gameOver
 	j sce13
 		dino2Sce12:
 		jal dino2
@@ -686,7 +686,6 @@ dino1.3:
 	sw $t1, 27696($t9)
 	sw $t1, 28208($t9)
 	sw $t1, 28720($t9)
-	sw $t1, 29332($t9)
 	sw $t3, 29744($t9)
 	sw $t0, 30256($t9)
 	sw $t4, 30768($t9)
