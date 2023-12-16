@@ -10,56 +10,134 @@ main:
 start:	
 	sce1:
 	.include "scenario1.asm"
+	bne $s0, 0, dino2Sce1
 	jal check
+	j sce2
+		dino2Sce1:
+		jal dino2
+		
 	sce2:
 	.include "scenario2.asm"
+	bne $s0, 0, dino2Sce2
 	jal check
+	j sce3
+		dino2Sce2:
+		jal dino2
+		
 	sce3:
 	.include "scenario3.asm"
+	bne $s0, 0, dino2Sce3
 	jal check
+	j sce4
+		dino2Sce3:
+		jal dino2
+		
 	sce4:
 	.include "scenario4.asm"
+	bne $s0, 0, dino2Sce4
 	jal check
+	j sce5
+		dino2Sce4:
+		jal dino2
+		
 	sce5:
 	.include "scenario5.asm"
+	bne $s0, 0, dino2Sce5
 	jal check
+	j sce6
+		dino2Sce5:
+		jal dino2
+		
 	sce6:
 	.include "scenario6.asm"
+	bne $s0, 0, dino2Sce6
 	jal check
+	j sce7
+		dino2Sce6:
+		jal dino2
+		
 	sce7:
 	.include "scenario7.asm"
+	bne $s0, 0, dino2Sce7
 	jal check
+	j sce8
+		dino2Sce7:
+		jal dino2
+		
 	sce8:
 	.include "scenario8.asm"
+	bne $s0, 0, dino2Sce8
 	jal check
+	j sce9
+		dino2Sce8:
+		jal dino2
+		
 	sce9:
 	.include "scenario9.asm"
+	bne $s0, 0, dino2Sce9
 	jal check
+	j sce10
+		dino2Sce9:
+		jal dino2
+		
 	sce10:
 	.include "scenario10.asm"
+	bne $s0, 0, dino2Sce10
 	jal check
+	j sce11
+		dino2Sce10:
+		jal dino2
+		
 	sce11:
 	.include "scenario11.asm"
+	bne $s0, 0, dino2Sce11
 	jal check
+	j sce12
+		dino2Sce11:
+		jal dino2
+		
 	sce12:
 	.include "scenario12.asm"
+	bne $s0, 0, dino2Sce12
 	jal check
-	
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
 	beq $t0, 0X00FF00DA, gameOver
+	j sce13
+		dino2Sce12:
+		jal dino2
+		
 	sce13:
 	.include "scenario13.asm"
+	bne $s0, 0, dino2Sce13
 	jal check
+	j sce14
+		dino2Sce13:
+		jal dino2
+		
 	sce14:
 	.include "scenario14.asm"
+	bne $s0, 0, dino2Sce14
 	jal check
+	j sce15
+		dino2Sce14:
+		jal dino2
+		
 	sce15:
 	.include "scenario15.asm"
+	bne $s0, 0, dino2Sce15
 	jal check
+	j sce16
+		dino2Sce15:
+		jal dino2
+		
 	sce16:
 	.include "scenario16.asm"
+	bne $s0, 0, dino2Sce16
 	jal check
+	j sce1
+		dino2Sce16:
+		jal dino2
 		
 	j start
 	
@@ -70,20 +148,25 @@ check:
 	forCheck:
 	beq $t0, 100, dino1
 	lw $t1, 0($t8)
-	beq $t1, 1, wKeyCheck
+	beq $t1, 1, testJump
+	addi $t0, $t0, 1
+	j forCheck
+	
+	testJump:
+	beq $s0, 0, wKeyCheck
 	addi $t0, $t0, 1
 	j forCheck
 	
 	wKeyCheck:
 	lw $t1, 4($t8)
-	beq $t1, 'w', dino2
+	beq $t1, 'w', dino2W
 	addi $t0, $t0, 1
 	j forCheck
 	
 dino1:
 	lui $t9, 0x1001
 	#COLOR PALETTE
-    addi $t0, $zero, 0X00FF00DA #Pink
+    	addi $t0, $zero, 0X00FF00DA #Pink
    	addi $t1, $zero, 0X00000000 #Black
 	addi $t2, $zero, 0X00FFFFFF #White
 	addi $t3, $zero, 0X00903918 #Brown
@@ -279,14 +362,15 @@ dino1:
 	addi $t0, $zero, 0
 	
 	delayDino1:
-	beq $t0, 75000, exitDino1
+	beq $t0, 5000, exitDino1
 	addi $t0, $t0, 1
 	j delayDino1
 	
 	exitDino1:
 	jr $ra
 
-dino2:
+dino2W:
+	addi $s0, $zero, 8
 	lui $t9, 0x1001
 	#COLOR PALETTE
     addi $t0, $zero, 0X00FF00DA #Pink
@@ -484,8 +568,215 @@ dino2:
 	
 	addi $t0, $zero, 0
 	
+	delayDino2W:
+	beq $t0, 5000, exitDino2W
+	addi $t0, $t0, 1
+	j delayDino2W
+	
+	exitDino2W:
+	jr $ra
+	
+dino2:
+	addi $s0, $s0, -1
+	lui $t9, 0x1001
+	#COLOR PALETTE
+    	addi $t0, $zero, 0X00FF00DA #Pink
+   	addi $t1, $zero, 0X00000000 #Black
+	addi $t2, $zero, 0X00FFFFFF #White
+	addi $t3, $zero, 0X00903918 #Brown
+	addi $t4, $zero, 0X00B00598 #Dark Pink
+	addi $t5, $zero, 0X000100FF #Blue
+
+	#Column16
+	sw $t1, 5692($t9)
+	sw $t1, 6204($t9)
+	sw $t1, 6716($t9)
+	sw $t0, 13884($t9)
+	sw $t4, 14396($t9)
+
+	#Column15
+	sw $t1, 5176($t9)
+	sw $t1, 5688($t9)
+	sw $t1, 6200($t9)
+	sw $t1, 6712($t9)
+	sw $t1, 7736($t9)
+	sw $t1, 9272($t9)
+	sw $t1, 9784($t9)
+	sw $t0, 13880($t9)
+	sw $t0, 14392($t9)
+	sw $t4, 14904($t9)
+
+	#Column14
+	sw $t1, 5172($t9)
+	sw $t1, 5684($t9)
+	sw $t1, 6196($t9)
+	sw $t1, 6708($t9)
+	sw $t1, 7732($t9)
+	sw $t1, 9268($t9)
+	sw $t0, 14388($t9)
+	sw $t4, 14900($t9)
+	sw $t2, 15412($t9)
+	sw $t5, 15924($t9)
+
+	#Column13
+	sw $t0, 4656($t9)
+	sw $t1, 5168($t9)
+	sw $t1, 5680($t9)
+	sw $t1, 6192($t9)
+	sw $t1, 6704($t9)
+	sw $t1, 7216($t9)
+	sw $t1, 7728($t9)
+	sw $t1, 8240($t9)
+	sw $t1, 8752($t9)
+	sw $t1, 9264($t9)
+	sw $t1, 9776($t9)
+	sw $t1, 10288($t9)
+	sw $t1, 10800($t9)
+	sw $t1, 11312($t9)
+	sw $t1, 11824($t9)
+	sw $t1, 12336($t9)
+	sw $t1, 12848($t9)
+	sw $t3, 13872($t9)
+	sw $t0, 14384($t9)
+	sw $t4, 14896($t9)
+	sw $t5, 15408($t9)
+	sw $t5, 15920($t9)
+
+	#Column12
+	sw $t0, 4140($t9)
+	sw $t0, 4652($t9)
+	sw $t1, 5164($t9)
+	sw $t2, 5676($t9)
+	sw $t1, 6188($t9)
+	sw $t1, 6700($t9)
+	sw $t1, 7212($t9)
+	sw $t1, 7724($t9)
+	sw $t1, 8236($t9)
+	sw $t1, 8748($t9)
+	sw $t1, 9260($t9)
+	sw $t1, 9772($t9)
+	sw $t1, 10284($t9)
+	sw $t1, 10796($t9)
+	sw $t1, 11308($t9)
+	sw $t1, 11820($t9)
+	sw $t1, 12332($t9)
+	sw $t1, 12844($t9)
+	sw $t1, 13356($t9)
+	sw $t3, 13868($t9)
+	sw $t0, 14380($t9)
+	sw $t4, 14892($t9)
+
+	#Column11
+	sw $t0, 4136($t9)
+	sw $t0, 4648($t9)
+	sw $t1, 5160($t9)
+	sw $t1, 5672($t9)
+	sw $t1, 6184($t9)
+	sw $t1, 6696($t9)
+	sw $t1, 7208($t9)
+	sw $t1, 7720($t9)
+	sw $t1, 8232($t9)
+	sw $t1, 8744($t9)
+	sw $t1, 9256($t9)
+	sw $t1, 9768($t9)
+	sw $t1, 10280($t9)
+	sw $t1, 10792($t9)
+	sw $t1, 11304($t9)
+	sw $t1, 11816($t9)
+	sw $t1, 12328($t9)
+	sw $t0, 14376($t9)
+	sw $t4, 14888($t9)
+
+	#Column10
+	sw $t0, 4644($t9)
+	sw $t1, 5156($t9)
+	sw $t1, 5668($t9)
+	sw $t1, 6180($t9)
+	sw $t1, 6692($t9)
+	sw $t1, 7204($t9)
+	sw $t1, 7716($t9)
+	sw $t1, 8228($t9)
+	sw $t1, 8740($t9)
+	sw $t1, 9252($t9)
+	sw $t1, 9764($t9)
+	sw $t1, 10276($t9)
+	sw $t1, 10788($t9)
+	sw $t1, 11300($t9)
+	sw $t1, 11812($t9)
+	sw $t0, 14372($t9)
+	sw $t4, 14884($t9)
+
+	#Column9
+	sw $t1, 8224($t9)
+	sw $t1, 8736($t9)
+	sw $t1, 9248($t9)
+	sw $t1, 9760($t9)
+	sw $t1, 10272($t9)
+	sw $t1, 10784($t9)
+	sw $t1, 11296($t9)
+	sw $t1, 11808($t9)
+	sw $t1, 12320($t9)
+	sw $t3, 13856($t9)
+	sw $t0, 14368($t9)
+	sw $t4, 14880($t9)
+
+	#Column8
+	sw $t1, 8732($t9)
+	sw $t1, 9244($t9)
+	sw $t1, 9756($t9)
+	sw $t1, 10268($t9)
+	sw $t1, 10780($t9)
+	sw $t1, 11292($t9)
+	sw $t1, 11804($t9)
+	sw $t1, 12316($t9)
+	sw $t1, 12828($t9)
+	sw $t1, 13340($t9)
+	sw $t3, 13852($t9)
+	sw $t0, 14364($t9)
+	sw $t4, 14876($t9)
+	sw $t2, 15388($t9)
+	sw $t5, 15900($t9)
+
+	#Column7
+	sw $t1, 9240($t9)
+	sw $t1, 9752($t9)
+	sw $t1, 10264($t9)
+	sw $t1, 10776($t9)
+	sw $t1, 11288($t9)
+	sw $t1, 11800($t9)
+	sw $t1, 12312($t9)
+	sw $t1, 12824($t9)
+	sw $t0, 14360($t9)
+	sw $t4, 14872($t9)
+	sw $t5, 15384($t9)
+	sw $t5, 15896($t9)
+
+	#Column6
+	sw $t1, 8724($t9)
+	sw $t1, 9236($t9)
+	sw $t1, 9748($t9)
+	sw $t1, 10260($t9)
+	sw $t1, 10772($t9)
+	sw $t1, 11284($t9)
+	sw $t0, 13844($t9)
+	sw $t0, 14356($t9)
+	sw $t4, 14868($t9)
+
+	#Column5
+	sw $t1, 8208($t9)
+	sw $t1, 8720($t9)
+	sw $t1, 9232($t9)
+	sw $t1, 9744($t9)
+	sw $t1, 10256($t9)
+	sw $t1, 10768($t9)
+	sw $t0, 13840($t9)
+	sw $t4, 14352($t9)
+
+	
+	addi $t0, $zero, 0
+	
 	delayDino2:
-	beq $t0, 75000, exitDino2
+	beq $t0, 5000, exitDino2
 	addi $t0, $t0, 1
 	j delayDino2
 	
@@ -495,9 +786,3 @@ dino2:
 gameOver:
 	addi $v0, $zero, 10
 	syscall
-
-
-		
-	
-
-
