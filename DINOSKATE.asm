@@ -102,7 +102,7 @@ start:
 	jal check4
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
-	beq $t0, 0X00FF00DA, replay
+	beq $t0, 0X00FF00DA, tryReplay
 	j sce13
 		dino2Sce12:
 		jal dino2
@@ -113,7 +113,7 @@ start:
 	jal check1
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
-	beq $t0, 0X00FF00DA, replay
+	beq $t0, 0X00FF00DA, tryReplay
 	j sce14
 		dino2Sce13:
 		jal dino2
@@ -124,7 +124,7 @@ start:
 	jal check2
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
-	beq $t0, 0X00FF00DA, replay
+	beq $t0, 0X00FF00DA, tryReplay
 	j sce15
 		dino2Sce14:
 		jal dino2
@@ -135,7 +135,7 @@ start:
 	jal check3
 	lui $t9, 0x1001
 	lw $t0, 29756($t9)
-	beq $t0, 0X00FF00DA, replay
+	beq $t0, 0X00FF00DA, tryReplay
 	j sce16
 		dino2Sce15:
 		jal dino2
@@ -168,7 +168,7 @@ check1:
 	
 	wKeyCheck1:
 	lw $t1, 4($t8)
-	beq $t1, ' ', dino2W
+	beq $t1, 'w', dino2W
 	addi $t0, $t0, 1
 	j forCheck1
 
@@ -190,7 +190,7 @@ check2:
 	
 	wKeyCheck2:
 	lw $t1, 4($t8)
-	beq $t1, ' ', dino2W
+	beq $t1, 'w', dino2W
 	addi $t0, $t0, 1
 	j forCheck2
 
@@ -212,7 +212,7 @@ check3:
 	
 	wKeyCheck3:
 	lw $t1, 4($t8)
-	beq $t1, ' ', dino2W
+	beq $t1, 'w', dino2W
 	addi $t0, $t0, 1
 	j forCheck3
 
@@ -234,7 +234,7 @@ check4:
 	
 	wKeyCheck4:
 	lw $t1, 4($t8)
-	beq $t1, ' ', dino2W
+	beq $t1, 'w', dino2W
 	addi $t0, $t0, 1
 	j forCheck4
 
@@ -1443,22 +1443,23 @@ dino2:
 	exitDino2:
 	jr $ra
 
-replay:
+tryReplay:
 	lui $t8, 0xffff
 	addi $t0, $zero, 0
+	.include "tryReplay.asm"
 	
-	forReplay:
-	beq $t0, 1000000, gameOver
+	forTryReplay:
+	beq $t0, 2000000, gameOver
 	lw $t1, 0($t8)
 	beq $t1, 1, testKey
 	addi $t0, $t0, 1
-	j forReplay
+	j forTryReplay
 	
 	testKey:
 	lw $t1, 4($t8)
-	beq $t1, ' ', main
+	beq $t1, 'r', main
 	addi $t0, $t0, 1
-	j forReplay
+	j forTryReplay
 
 gameOver:
 	addi $v0, $zero, 10
