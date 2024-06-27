@@ -1,125 +1,125 @@
 # DINO ON WHEELS - ASSEMBLY GAME
 
-## Introdução
+## Introduction
 
-Este projeto foi desenvolvido por mim, no 2° período da faculdade na matéria de ARQUITETURA DE COMPUTADORES ministrada pelo professor EDUARDO BRAULIO. O jogo é um projeto divertido e educativo que apresenta um personagem chamado DINO, que anda de skate pela estrada. O objetivo principal do jogo é desviar dos obstáculos que estão em constante movimento.
+This project was developed by me in the 2nd semester of college for the COMPUTER ARCHITECTURE course taught by Professor EDUARDO BRAULIO. The game is a fun and educational project featuring a character named DINO, who rides a skateboard on the road. The main objective of the game is to avoid the constantly moving obstacles.
 
 ![Dino on Wheels](images/dino-gameplay.gif)
 
-## Sumário
+## Table of Contents
 
-- [Requisitos](#requisitos)
-- [Instalação](#instalação)
-- [Execução](#execução)
-- [Comandos](#comandos)
-- [Contribuição](#contribuição)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Execution](#execution)
+- [Commands](#commands)
+- [Contribution](#contribution)
 
-## Requisitos
+## Requirements
 
 - Git
 - Java Runtime Environment (JRE)
 
-## Instalação
+## Installation
 
-Passos para configurar o ambiente:
+Steps to set up the environment:
 
-1. **Verifique se já possui os requisitos acima. Caso não possua, procure algum tutorial para atender os requisitos.**
+1. **Verify if you have the above requirements. If not, look for a tutorial to meet the requirements.**
 
-2. **Clone o Repositório:**
+2. **Clone the Repository:**
 
     ```bash
     git clone https://github.com/JoaoRobert0/DinoOnWheels-AssemblyGame.git
     ```
 
-3. **Instalação do MARS:**
+3. **Installing MARS:**
 
-    - Visite: [MARS Download](https://courses.missouristate.edu/kenvollmar/mars/download.htm)
+    - Visit: [MARS Download](https://courses.missouristate.edu/kenvollmar/mars/download.htm)
 
-    - Clique em download:
+    - Click on download:
 
         ![MARS Download](images/image.png)
 
-## Execução
+## Execution
 
-Passos para executar o projeto:
+Steps to run the project:
 
-1. **Execute o arquivo Mars4_5.jar:**
+1. **Run the Mars4_5.jar file:**
 
-    - Abra o terminal e execute o seguinte comando:
+    - Open the terminal and run the following command:
 
         ```bash
         java -jar Mars4_5.jar
         ```
 
-2. **Abrindo o projeto clonado no MARS:**
+2. **Opening the cloned project in MARS:**
 
-    - Clique no ícone para selecionar a pasta:
+    - Click on the icon to select the folder:
 
-        ![Selecionar Pasta](images/image-2.png)
+        ![Select Folder](images/image-2.png)
 
-    - Selecione a pasta onde se encontra o projeto e abra o arquivo `DINOSKATE.ASM`:
+    - Select the folder where the project is located and open the `DINOSKATE.ASM` file:
 
-        ![Abrir Arquivo](images/image-3.png)
+        ![Open File](images/image-3.png)
 
-3. **Abrindo a ferramenta de display:**
+3. **Opening the display tool:**
 
-    - Clique em `Tools`, no canto superior esquerdo:
+    - Click on `Tools` in the upper left corner:
 
-        ![Abrir Tools](images/image-7.png)
+        ![Open Tools](images/image-7.png)
 
-    - Selecione a opção: **Bitmap Display**
+    - Select the option: **Bitmap Display**
 
         ![Bitmap Display](images/image-4.png)
 
-    - Altere os dois primeiros campos para **4 pixels**:
+    - Change the first two fields to **4 pixels**:
     
-        ![Configurar Pixels](images/image-5.png)
+        ![Configure Pixels](images/image-5.png)
 
-    - Clique no botão **Connect to MIPS**:
+    - Click the **Connect to MIPS** button:
 
-        ![Conectar MIPS](images/image-6.png)
+        ![Connect to MIPS](images/image-6.png)
 
-4. **Abrindo a ferramenta de teclado:**
+4. **Opening the keyboard tool:**
 
-    - Em `Tools` novamente, selecione a opção **Keyboard and Display MMIO Simulator**:
+    - In `Tools` again, select the **Keyboard and Display MMIO Simulator** option:
 
-        ![Abrir Teclado](images/image-8.png)
+        ![Open Keyboard](images/image-8.png)
 
-    - Clique no botão **Connect to MIPS**:
+    - Click the **Connect to MIPS** button:
 
-        ![Conectar MIPS](images/image-9.png)
+        ![Connect to MIPS](images/image-9.png)
 
-5. **Organizando a Tela:**
+5. **Organizing the Screen:**
 
-    - Separe as duas ferramentas na sua tela:
+    - Arrange the two tools on your screen:
 
-        ![Organizar Tela](images/image-10.png)
+        ![Organize Screen](images/image-10.png)
 
-6. **Executando o jogo**
+6. **Running the game**
 
-    - Clique no ícone `Run`, no topo da janela:
+    - Click the `Run` icon at the top of the window:
 
-        ![Iniciar Jogo](images/image-11.png)
+        ![Run Game](images/image-11.png)
 
-    - Clique no ícone ao lado para iniciar o jogo:
+    - Click the icon next to it to start the game:
 
-        ![Iniciar Jogo](images/image-12.png)
+        ![Start Game](images/image-12.png)
 
-    - Use a área de teclado para digitar as ações:
+    - Use the keyboard area to type actions:
 
-        ![Área de Teclado](images/image-13.png)
+        ![Keyboard Area](images/image-13.png)
 
-## Comandos
+## Commands
 
-- `w` => Pular
-- `r` => Reiniciar
+- `w` => Jump
+- `r` => Restart
 
-## Contribuição
+## Contribution
 
-Se você quiser contribuir com o projeto, siga estas etapas:
+If you want to contribute to the project, follow these steps:
 
-1. Faça um fork do repositório.
-2. Crie uma branch para suas alterações (`git checkout -b minha-nova-funcionalidade`).
-3. Faça commit de suas alterações (`git commit -m 'Adiciona nova funcionalidade'`).
-4. Faça push para a branch (`git push origin minha-nova-funcionalidade`).
-5. Abra um Pull Request.
+1. Fork the repository.
+2. Create a branch for your changes (`git checkout -b my-new-feature`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin my-new-feature`).
+5. Open a Pull Request.
